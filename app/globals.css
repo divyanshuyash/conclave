@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --gold: #d9a520;
+  --gold-soft: rgba(217, 165, 32, 0.18);
+  --charcoal: #161616;
+  --black: #0b0b0b;
+  --wine: #301315;
+  --platinum: #d8d2c3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(118deg, rgba(48, 19, 21, 0.22), transparent 36rem),
+    linear-gradient(180deg, #080807 0%, #11100d 44%, #080807 100%),
+    #0b0b0b;
+  color: #f3f3f3;
+  font-family: Montserrat, Poppins, Inter, Arial, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+body::before {
+  pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(90deg, rgba(216, 210, 195, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(216, 210, 195, 0.025) 1px, transparent 1px),
+    linear-gradient(120deg, transparent 0 44%, rgba(217, 165, 32, 0.08) 44.2% 44.5%, transparent 45%);
+  background-size: 72px 72px, 72px 72px, 520px 520px;
+  mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.68), transparent 96%);
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: rgba(217, 165, 32, 0.34);
+  color: #fff7d0;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: Anton, "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-5 py-[4.5rem] lg:px-8 lg:py-24;
+  }
+
+  .gold-text {
+    background: linear-gradient(180deg, #fff8c7 0%, #d9a520 48%, #946317 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    @apply border border-conclave-gold/30 bg-[#11100d]/85 shadow-gold backdrop-blur-xl;
+  }
+
+  .gold-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-[4px] border border-[#f8e49a]/45 bg-gold-gradient px-6 py-3 text-sm font-black uppercase tracking-[0.06em] text-[#141007] shadow-gold-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_42px_rgba(217,165,32,0.18)] focus:outline-none focus-visible:ring-2 focus-visible:ring-conclave-gold/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+
+  .dark-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-[4px] border border-conclave-gold/40 bg-black/35 px-6 py-3 text-sm font-black uppercase tracking-[0.06em] text-conclave-offwhite transition duration-200 hover:-translate-y-0.5 hover:border-conclave-gold/70 hover:bg-conclave-gold/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-conclave-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
+
+  .section-kicker {
+    @apply text-xs font-black uppercase tracking-[0.22em] text-conclave-gold;
+  }
+
+  .hairline-title {
+    @apply flex items-center gap-4;
+  }
+
+  .hairline-title::before,
+  .hairline-title::after {
+    content: "";
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-conclave-gold/55 to-transparent;
+  }
+}
+
+.luxury-border {
+  position: relative;
+}
+
+.luxury-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent, rgba(255, 235, 157, 0.18), transparent);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.luxury-border:hover::after {
+  opacity: 1;
+}
+
+.trophy-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy-shine::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% -45%;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, rgba(255, 246, 196, 0.46), transparent);
+  animation: shine 5.4s ease-in-out infinite;
+}
+
+.hero-host-portrait {
+  -webkit-mask-image:
+    linear-gradient(to top, transparent 0%, black 17%, black 100%),
+    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to top, transparent 0%, black 17%, black 100%),
+    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.map-grid {
+  background-image:
+    linear-gradient(rgba(217, 165, 32, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 165, 32, 0.1) 1px, transparent 1px),
+    linear-gradient(135deg, transparent 0 42%, rgba(217, 165, 32, 0.12) 42.2% 42.5%, transparent 43%),
+    linear-gradient(35deg, rgba(255, 255, 255, 0.04), transparent 38%);
+  background-size: 46px 46px, 46px 46px, 100% 100%, 100% 100%;
+}
+
+@media (max-width: 767px) {
+  .section-shell {
+    @apply py-14;
+  }
+}
