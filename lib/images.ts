@@ -6,8 +6,10 @@ export const referenceImages = {
 };
 
 export const campaignImages = {
-  hero: "/images/hero-campaign-v2.png",
-  shobhitHero: "/images/shobhit-singhal-hero-v1.png",
+  hero: "/images/hero-chanakya-base-v4.png",
+  finalCta: "/images/final-cta-room-v1.png",
+  recognitionExperience: "/images/recognition-experience-v1.png",
+  shobhitHero: "/images/shobhit-singhal-cutout-v3.png",
   shobhitLogo: "/images/shobhit-singhal-logo.png",
   awardChanakya: "/images/award-chanakya-v2.png",
   awardOneLakh: "/images/award-one-lakh-v2.png",

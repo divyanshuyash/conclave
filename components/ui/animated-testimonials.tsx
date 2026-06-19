@@ -85,19 +85,19 @@ export function AnimatedTestimonials({
         animate={controls}
         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
         transition={{ duration: 0.6 }}
-        className="section-shell relative grid gap-12 pt-16 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-20"
+        className="section-shell relative"
       >
-        <div>
+        <div className="section-heading">
           <div className="inline-flex items-center gap-2 border border-conclave-gold/35 bg-conclave-gold/[0.06] px-3 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-conclave-gold">
             <Star aria-hidden="true" size={14} fill="currentColor" />
             {badgeText}
           </div>
-          <h2 className="mt-6 max-w-[9ch] text-5xl leading-[0.94] text-conclave-offwhite sm:text-6xl lg:text-7xl">
+          <h2 className="section-title">
             {title}
           </h2>
-          <p className="mt-6 max-w-md text-base font-semibold leading-7 text-conclave-offwhite/60">{subtitle}</p>
+          <p className="section-copy">{subtitle}</p>
 
-          <div className="mt-8 flex items-center gap-3">
+          <div className="mt-7 flex items-center justify-center gap-3">
             <button
               type="button"
               onClick={showPrevious}
@@ -120,7 +120,7 @@ export function AnimatedTestimonials({
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative mx-auto mt-12 max-w-4xl">
           <div className="absolute -left-5 -top-5 h-28 w-28 border-l border-t border-conclave-gold/25" />
           <div className="absolute -bottom-5 -right-5 h-28 w-28 border-b border-r border-conclave-gold/25" />
 
@@ -131,7 +131,7 @@ export function AnimatedTestimonials({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction * -40 }}
               transition={{ duration: 0.38, ease: "easeInOut" }}
-              className="relative flex min-h-[480px] flex-col border border-conclave-gold/35 bg-[linear-gradient(140deg,rgba(24,21,13,.96),rgba(7,7,7,.98)_64%)] p-7 shadow-gold sm:p-10 lg:min-h-[520px]"
+              className="relative flex min-h-[440px] flex-col border border-conclave-gold/35 bg-[linear-gradient(140deg,rgba(24,21,13,.96),rgba(7,7,7,.98)_64%)] p-7 text-left shadow-gold sm:min-h-[400px] sm:p-10"
               aria-live="polite"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#fff0a6]/80 to-transparent" />
@@ -159,7 +159,7 @@ export function AnimatedTestimonials({
             </motion.article>
           </AnimatePresence>
 
-          <div className="mt-8 flex flex-wrap gap-2" aria-label="Select a testimonial">
+          <div className="mt-8 flex flex-wrap justify-center gap-2" aria-label="Select a testimonial">
             {testimonials.map((testimonial, index) => (
               <button
                 key={testimonial.id}

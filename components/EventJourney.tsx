@@ -16,7 +16,7 @@ const agenda: Array<{ time: string; title: string; details: string; icon: Lucide
   {
     time: "08:00 AM – 09:00 AM",
     title: "Registrations & Welcome Tea",
-    details: "Arrival, check-in and welcome tea.",
+    details: "Registration, networking, tea, refreshments and a considered welcome experience.",
     icon: Coffee
   },
   {
@@ -28,7 +28,7 @@ const agenda: Array<{ time: string; title: string; details: string; icon: Lucide
   {
     time: "11:00 AM – 11:15 AM",
     title: "Break",
-    details: "Short refreshment break.",
+    details: "Networking and refreshments.",
     icon: Coffee
   },
   {
@@ -40,25 +40,25 @@ const agenda: Array<{ time: string; title: string; details: string; icon: Lucide
   {
     time: "01:00 PM – 02:00 PM",
     title: "Networking Lunch",
-    details: "Lunch with members, nominees and business builders.",
+    details: "A premium buffet lunch with members, nominees and business builders.",
     icon: Utensils
   },
   {
     time: "02:00 PM – 04:00 PM",
     title: "Grand Awards Ceremony",
-    details: "Stage recognition for achievements and excellence.",
+    details: "All three awards, winner recognition, success stories and group photographs.",
     icon: Trophy
   },
   {
     time: "04:00 PM – 04:30 PM",
     title: "Closing Session",
-    details: "Closing remarks and gratitude.",
+    details: "Gratitude, reflections, community vision and the closing address.",
     icon: Megaphone
   },
   {
     time: "04:30 PM – 05:00 PM",
     title: "High Tea & Networking",
-    details: "Final conversations, celebrations and networking.",
+    details: "Final networking, photography and celebrations.",
     icon: Handshake
   }
 ];
@@ -85,7 +85,7 @@ export function EventJourney() {
           className="absolute left-0 right-0 top-[3.55rem] hidden h-px origin-left bg-gradient-to-r from-transparent via-conclave-gold/70 to-transparent lg:block"
         />
 
-        <div className="grid gap-5 lg:grid-cols-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8 lg:gap-5">
           {agenda.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -97,16 +97,16 @@ export function EventJourney() {
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 tabIndex={0}
-                className="group relative rounded-[6px] border border-conclave-gold/20 bg-conclave-charcoal/50 p-4 text-center shadow-gold-soft backdrop-blur focus:outline-none focus-visible:ring-1 focus-visible:ring-conclave-gold/70 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none"
+                className="group relative min-h-44 rounded-[4px] border border-conclave-gold/20 bg-conclave-charcoal/50 p-3 text-center shadow-gold-soft backdrop-blur focus:outline-none focus-visible:ring-1 focus-visible:ring-conclave-gold/70 sm:p-4 lg:min-h-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none"
               >
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-conclave-gold/55 bg-black text-conclave-gold shadow-gold transition group-hover:bg-conclave-gold group-hover:text-black">
-                  <Icon aria-hidden="true" size={26} strokeWidth={1.75} />
+                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full border border-conclave-gold/55 bg-black text-conclave-gold shadow-gold transition group-hover:bg-conclave-gold group-hover:text-black sm:h-16 sm:w-16">
+                  <Icon aria-hidden="true" size={23} strokeWidth={1.75} />
                 </div>
-                <p className="mt-4 text-sm font-black uppercase leading-5 tracking-[0.04em] text-conclave-offwhite">
+                <p className="mt-3 text-[10px] font-black uppercase leading-4 tracking-[0.04em] text-conclave-offwhite sm:mt-4 sm:text-xs sm:leading-5">
                   {item.time}
                 </p>
-                <h3 className="mt-2 text-2xl leading-none text-conclave-gold">{item.title}</h3>
-                <p className="mt-3 text-xs font-semibold leading-5 text-conclave-muted transition duration-300 lg:max-h-0 lg:translate-y-2 lg:overflow-hidden lg:opacity-0 lg:group-hover:max-h-28 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus:max-h-28 lg:group-focus:translate-y-0 lg:group-focus:opacity-100">
+                <h3 className="mt-2 text-xl leading-none text-conclave-gold sm:text-2xl">{item.title}</h3>
+                <p className="mt-3 max-h-0 translate-y-2 overflow-hidden text-[10px] font-semibold leading-4 text-conclave-muted opacity-0 transition duration-300 group-hover:max-h-28 group-hover:translate-y-0 group-hover:opacity-100 group-focus:max-h-28 group-focus:translate-y-0 group-focus:opacity-100 sm:text-xs sm:leading-5">
                   {item.details}
                 </p>
               </motion.article>

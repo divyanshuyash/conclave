@@ -24,64 +24,47 @@ const attendees: Array<{ label: string; icon: LucideIcon }> = [
   { label: "AI Consultants", icon: Bot },
   { label: "Experts", icon: BadgeCheck },
   { label: "Business Builders", icon: Building2 },
-  { label: "Working Towards Their First ₹1 Lakh", icon: Medal },
-  { label: "Working Towards Their First ₹10 Lakh", icon: Trophy }
+  { label: "Members Working Towards Their First ₹1 Lakh", icon: Medal },
+  { label: "Members Working Towards Their First ₹10 Lakh", icon: Trophy }
 ];
 
 export function WhoShouldAttend() {
   return (
     <section className="section-shell pt-8">
-      <div className="relative grid overflow-hidden border border-conclave-gold/30 bg-[#090908] shadow-gold lg:grid-cols-[0.62fr_1.38fr]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_38%,rgba(217,165,32,.16),transparent_28%)]" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.55 }}
+        className="section-heading mb-10"
+      >
+        <p className="section-kicker">The Right Room</p>
+        <h2 className="section-title">Who Should <span className="gold-text">Attend</span></h2>
+        <p className="section-copy">Built for members ready to learn, implement, earn and grow.</p>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.58 }}
-          className="relative flex min-h-80 flex-col justify-center border-b border-conclave-gold/20 p-7 sm:p-10 lg:min-h-full lg:border-b-0 lg:border-r lg:p-12"
-        >
-          <div className="mb-6 grid h-16 w-16 place-items-center rounded-full border border-conclave-gold/50 bg-conclave-gold/10 text-conclave-gold">
-            <UsersRound aria-hidden="true" size={30} strokeWidth={1.45} />
-          </div>
-          <p className="section-kicker mb-4">The right room</p>
-          <h2 className="max-w-[8ch] text-5xl leading-[0.94] text-conclave-offwhite sm:text-6xl">
-            Who Should
-            <span className="gold-text block">Attend</span>
-          </h2>
-          <p className="mt-6 max-w-xs text-sm font-semibold leading-6 text-conclave-offwhite/58">
-            Built for members ready to learn, implement and grow.
-          </p>
-        </motion.div>
-
-        <div className="relative grid gap-px bg-conclave-gold/20 sm:grid-cols-2">
-          {attendees.map((attendee, index) => {
-            const Icon = attendee.icon;
-            return (
-              <motion.div
-                key={attendee.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.035 }}
-                className="group relative flex min-h-28 items-center gap-4 overflow-hidden bg-[#0b0b09] p-5 transition-colors duration-300 hover:bg-[#151109] sm:p-6"
-              >
-                <Icon
-                  aria-hidden="true"
-                  size={88}
-                  strokeWidth={0.7}
-                  className="absolute -bottom-5 -right-3 text-conclave-gold/[0.055] transition duration-500 group-hover:scale-110 group-hover:text-conclave-gold/[0.1]"
-                />
-                <span className="grid h-11 w-11 shrink-0 place-items-center border border-conclave-gold/35 text-conclave-gold">
-                  <Icon aria-hidden="true" size={20} strokeWidth={1.5} />
-                </span>
-                <span className="relative max-w-[18rem] text-sm font-black uppercase leading-5 tracking-[0.07em] text-conclave-offwhite/82">
-                  {attendee.label}
-                </span>
-              </motion.div>
-            );
-          })}
-        </div>
+      <div className="grid grid-cols-2 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 sm:grid-cols-5">
+        {attendees.map((attendee, index) => {
+          const Icon = attendee.icon;
+          return (
+            <motion.article
+              key={attendee.label}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.4, delay: index * 0.035 }}
+              className="group relative flex min-h-36 flex-col items-center justify-center overflow-hidden bg-[#0a0a09] p-3 text-center transition-colors hover:bg-[#161209] sm:min-h-44 sm:p-4"
+            >
+              <Icon aria-hidden="true" size={82} strokeWidth={0.65} className="absolute -bottom-6 -right-5 text-conclave-gold/[0.05] transition group-hover:scale-110" />
+              <span className="grid h-12 w-12 place-items-center border border-conclave-gold/40 bg-conclave-gold/[0.07] text-conclave-gold">
+                <Icon aria-hidden="true" size={21} strokeWidth={1.45} />
+              </span>
+              <p className="relative mt-4 max-w-[11rem] text-[8px] font-black uppercase leading-4 tracking-[0.06em] text-conclave-offwhite/76 sm:text-[9px] sm:tracking-[0.08em]">
+                {attendee.label}
+              </p>
+            </motion.article>
+          );
+        })}
       </div>
     </section>
   );

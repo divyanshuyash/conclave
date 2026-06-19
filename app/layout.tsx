@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Chanakya Conclave 2026 | Shobhit Singhal",
   description:
-    "Chanakya Conclave 2026 is an exclusive members-only recognition and networking event presented by Shobhit Singhal at Hyatt Centric Hebbal Bengaluru."
+    "Chanakya Conclave 2026 is The Transformers Hub's exclusive members-only recognition and networking event at Hyatt Centric Hebbal Bengaluru."
 };
 
 export const viewport: Viewport = {

@@ -1,38 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck, BookOpenCheck, Sparkles, Trophy } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { BadgeCheck, ChevronDown, Medal, Sparkles, Trophy } from "lucide-react";
 import Image from "next/image";
 import { campaignImages } from "@/lib/images";
 
-const awards: Array<{
-  title: string;
-  text: string;
-  image: string;
-  includes: string[];
-}> = [
+const awards = [
   {
+    eyebrow: "Business Foundation",
     title: "Digital Chanakya Award",
-    text: "For successfully setting up a Digital Consulting, Coaching, Training, AI Consulting or Knowledge Business.",
+    text: "For successfully launching a consulting, coaching, training, AI or knowledge business.",
     image: campaignImages.awardChanakya,
-    includes: ["Trophy", "Certificate", "Stage Recognition", "Featured Success Story"]
+    eligibility: ["Clear niche", "Built offer", "Online presence", "Client acquisition", "Business launched"],
+    includes: ["Premium Trophy", "Certificate", "Stage Recognition", "Featured Story"]
   },
   {
+    eyebrow: "Revenue Milestone",
     title: "₹1 Lakh Achievement Award",
-    text: "For members who generated ₹1,00,000 or more in consulting revenue.",
+    text: "For generating cumulative consulting revenue of ₹1,00,000 or more.",
     image: campaignImages.awardOneLakh,
-    includes: ["Achievement Trophy", "Certificate", "Stage Recognition", "Featured Success Story"]
+    eligibility: ["₹1 lakh+ cumulative consulting revenue"],
+    includes: ["Achievement Trophy", "Certificate", "Stage Recognition", "Featured Story"]
   },
   {
+    eyebrow: "Elite Milestone",
     title: "₹10 Lakh Achievement Award",
-    text: "For members who generated ₹10,00,000 or more in consulting revenue.",
+    text: "For generating cumulative consulting revenue of ₹10,00,000 or more.",
     image: campaignImages.awardTenLakh,
-    includes: ["Elite Trophy", "Featured Recognition", "Success Story Spotlight"]
+    eligibility: ["₹10 lakh+ cumulative consulting revenue"],
+    includes: ["Elite Trophy", "Certificate", "Featured Recognition", "Success Spotlight"]
   }
 ];
-
-const includeIcons: LucideIcon[] = [Trophy, BookOpenCheck, BadgeCheck, Sparkles];
 
 export function AwardsSection() {
   return (
@@ -42,58 +40,78 @@ export function AwardsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.55 }}
-        className="mb-10 text-center"
+        className="section-heading mb-10"
       >
-        <p className="section-kicker mb-3">Recognizing real implementation</p>
-        <h2 className="gold-text text-5xl leading-none sm:text-6xl lg:text-7xl">3 Major Awards</h2>
+        <p className="section-kicker">The Honours</p>
+        <h2 className="section-title"><span className="gold-text">3 Major Awards</span></h2>
+        <p className="section-copy">One stage. Three defining milestones. Recognition built around results.</p>
       </motion.div>
 
-      <div className="space-y-5">
+      <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
         {awards.map((award, index) => (
           <motion.article
             key={award.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.58, delay: index * 0.07 }}
-            className="group relative grid overflow-hidden border border-conclave-gold/35 bg-[linear-gradient(110deg,#080807,#15120a_50%,#090908)] shadow-gold md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr]"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: index * 0.08 }}
+            className="group relative flex min-w-[82vw] snap-center flex-col overflow-hidden border border-conclave-gold/30 bg-[linear-gradient(150deg,#171208,#080807_66%)] shadow-gold sm:min-w-0"
           >
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#fff0a6]/80 to-transparent" />
-            <div className="relative min-h-[280px] overflow-hidden border-b border-conclave-gold/20 bg-[radial-gradient(circle,rgba(217,165,32,.13),transparent_68%)] md:min-h-[330px] md:border-b-0 md:border-r">
+            <div className="absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-[#fff0a6] to-transparent" />
+            <span className="absolute right-4 top-3 z-20 font-display text-5xl text-conclave-gold/15">0{index + 1}</span>
+
+            <div className="relative aspect-square overflow-hidden border-b border-conclave-gold/20 bg-[radial-gradient(circle_at_center,rgba(217,165,32,.19),transparent_66%)]">
               <Image
                 src={award.image}
-                alt={`${award.title} artwork`}
+                alt={`${award.title} ceremonial artwork`}
                 fill
-                className="object-contain p-4 transition duration-700 group-hover:scale-[1.035]"
-                sizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 100vw"
+                className="object-contain p-3 transition duration-700 group-hover:scale-[1.045]"
+                sizes="(min-width: 640px) 33vw, 82vw"
               />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0a0907] to-transparent" />
             </div>
 
-            <div className="relative flex flex-col justify-center p-7 sm:p-9 lg:p-12">
-              <span className="absolute right-7 top-5 font-display text-6xl text-conclave-gold/[0.08] sm:text-8xl">
-                0{index + 1}
-              </span>
-              <p className="section-kicker mb-4">Chanakya Conclave Honours</p>
-              <h3 className="gold-text max-w-2xl text-4xl leading-[0.95] sm:text-5xl lg:text-6xl">{award.title}</h3>
-              <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-conclave-offwhite/68">{award.text}</p>
-              <div className="mt-7 flex flex-wrap gap-2.5">
-                {award.includes.map((item, itemIndex) => {
-                  const IncludeIcon = includeIcons[itemIndex] ?? Sparkles;
-                  return (
-                    <span
-                      key={item}
-                      className="inline-flex items-center gap-2 border border-conclave-gold/25 bg-black/35 px-3 py-2 text-[10px] font-black uppercase tracking-[0.1em] text-conclave-offwhite/75"
-                    >
-                      <IncludeIcon aria-hidden="true" size={14} className="text-conclave-gold" />
-                      {item}
-                    </span>
-                  );
-                })}
+            <div className="flex flex-1 flex-col p-5 sm:p-6">
+              <p className="text-[9px] font-black uppercase tracking-[0.18em] text-conclave-gold">{award.eyebrow}</p>
+              <h3 className="mt-3 text-3xl leading-[0.94] text-conclave-offwhite lg:text-4xl">{award.title}</h3>
+              <p className="mt-4 text-xs font-semibold leading-5 text-conclave-offwhite/58 sm:min-h-[60px]">{award.text}</p>
+
+              <div className="mt-5 grid grid-cols-2 gap-2 border-y border-conclave-gold/15 py-4">
+                {award.includes.map((item, itemIndex) => (
+                  <div key={item} className="flex items-center gap-2 text-[8px] font-black uppercase leading-3 tracking-[0.05em] text-conclave-offwhite/72">
+                    {itemIndex === 0 ? (
+                      <Trophy aria-hidden="true" size={13} className="shrink-0 text-conclave-gold" />
+                    ) : itemIndex === 1 ? (
+                      <Medal aria-hidden="true" size={13} className="shrink-0 text-conclave-gold" />
+                    ) : (
+                      <Sparkles aria-hidden="true" size={13} className="shrink-0 text-conclave-gold" />
+                    )}
+                    {item}
+                  </div>
+                ))}
               </div>
+
+              <details className="group/details mt-auto pt-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between text-[9px] font-black uppercase tracking-[0.16em] text-conclave-gold marker:content-none">
+                  View Eligibility
+                  <ChevronDown aria-hidden="true" size={16} className="transition group-open/details:rotate-180" />
+                </summary>
+                <div className="mt-4 space-y-2 border-t border-conclave-gold/15 pt-4">
+                  {award.eligibility.map((item) => (
+                    <p key={item} className="flex items-start gap-2 text-[10px] font-semibold leading-4 text-conclave-offwhite/64">
+                      <BadgeCheck aria-hidden="true" size={14} className="mt-px shrink-0 text-conclave-gold" />
+                      {item}
+                    </p>
+                  ))}
+                </div>
+              </details>
             </div>
           </motion.article>
         ))}
       </div>
+      <p className="mt-2 text-center text-[9px] font-black uppercase tracking-[0.14em] text-conclave-offwhite/35 sm:hidden">
+        Swipe to explore all awards
+      </p>
     </section>
   );
 }

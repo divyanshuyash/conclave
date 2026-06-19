@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Eye, Handshake, Lightbulb, Network, TrendingUp } from "lucide-react";
+import { Award, Eye, Handshake, Lightbulb, Network, PartyPopper, Rocket, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const experiences: Array<{ title: string; description: string; icon: LucideIcon }> = [
@@ -34,6 +34,16 @@ const experiences: Array<{ title: string; description: string; icon: LucideIcon 
     title: "Visibility",
     description: "Be seen by the right community for the right work.",
     icon: Eye
+  },
+  {
+    title: "Celebration",
+    description: "A premium ceremony built around member milestones.",
+    icon: PartyPopper
+  },
+  {
+    title: "Momentum",
+    description: "Return with the conviction to take the next action.",
+    icon: Rocket
   }
 ];
 
@@ -45,18 +55,19 @@ export function ExperienceCards() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.45 }}
         transition={{ duration: 0.55 }}
-        className="mb-11 grid gap-5 border-b border-conclave-gold/25 pb-8 md:grid-cols-[1fr_auto] md:items-end"
+        className="section-heading mb-10"
       >
-        <h2 className="max-w-4xl text-5xl leading-[0.95] text-conclave-offwhite sm:text-6xl">
+        <p className="section-kicker">The Experience</p>
+        <h2 className="section-title">
           Not Just An Event
           <span className="gold-text block">A Room Full Of Builders</span>
         </h2>
-        <p className="max-w-xs text-sm font-bold uppercase leading-6 tracking-[0.1em] text-conclave-offwhite/48 md:text-right">
-          One considered experience. Six lasting outcomes.
+        <p className="section-copy">
+          One considered experience. Eight lasting outcomes.
         </p>
       </motion.div>
 
-      <div className="grid gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 lg:grid-cols-4">
         {experiences.map((item, index) => {
           const Icon = item.icon;
           return (
@@ -68,7 +79,7 @@ export function ExperienceCards() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.045 }}
               tabIndex={0}
-              className="group relative min-h-64 overflow-hidden bg-[#0a0a09] p-7 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:p-8"
+              className="group relative min-h-44 overflow-hidden bg-[#0a0a09] p-5 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:min-h-56 sm:p-7 lg:min-h-60 lg:p-7"
             >
               <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-conclave-gold/10" />
               <Icon
@@ -78,13 +89,13 @@ export function ExperienceCards() {
                 className="absolute -bottom-10 -right-8 text-conclave-gold/[0.055] transition duration-500 group-hover:scale-110 group-hover:text-conclave-gold/[0.09]"
               />
               <div className="flex items-start justify-between">
-                <Icon aria-hidden="true" className="text-conclave-gold" size={30} strokeWidth={1.35} />
-                <span className="font-display text-4xl text-conclave-gold/20">0{index + 1}</span>
+                <Icon aria-hidden="true" className="text-conclave-gold" size={26} strokeWidth={1.35} />
+                <span className="font-display text-3xl text-conclave-gold/20 sm:text-4xl">0{index + 1}</span>
               </div>
-              <div className="mt-16">
-                <h3 className="text-4xl leading-none text-conclave-offwhite">{item.title}</h3>
+              <div className="mt-10 sm:mt-14">
+                <h3 className="text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</h3>
                 <div className="mt-4 h-px w-12 bg-conclave-gold/70" />
-                <p className="mt-4 max-w-xs text-sm font-semibold leading-6 text-conclave-offwhite/58 transition duration-300 lg:max-h-0 lg:translate-y-2 lg:overflow-hidden lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus:max-h-20 lg:group-focus:translate-y-0 lg:group-focus:opacity-100">
+                <p className="mt-3 max-h-0 translate-y-2 overflow-hidden text-[10px] font-semibold leading-4 text-conclave-offwhite/58 opacity-0 transition duration-300 group-hover:max-h-20 group-hover:translate-y-0 group-hover:opacity-100 group-focus:max-h-20 group-focus:translate-y-0 group-focus:opacity-100 sm:mt-4 sm:text-sm sm:leading-6">
                   {item.description}
                 </p>
               </div>

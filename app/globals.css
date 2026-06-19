@@ -72,7 +72,19 @@ footer {
 
 @layer components {
   .section-shell {
-    @apply mx-auto max-w-7xl px-5 py-[4.5rem] lg:px-8 lg:py-24;
+    @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24;
+  }
+
+  .section-heading {
+    @apply mx-auto max-w-4xl text-center;
+  }
+
+  .section-title {
+    @apply mt-3 text-5xl leading-[0.94] text-conclave-offwhite sm:text-6xl lg:text-7xl;
+  }
+
+  .section-copy {
+    @apply mx-auto mt-5 max-w-2xl text-sm font-semibold leading-6 text-conclave-offwhite/55 sm:text-base sm:leading-7;
   }
 
   .gold-text {
@@ -142,17 +154,6 @@ footer {
   animation: shine 5.4s ease-in-out infinite;
 }
 
-.hero-host-portrait {
-  -webkit-mask-image:
-    linear-gradient(to top, transparent 0%, black 17%, black 100%),
-    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to top, transparent 0%, black 17%, black 100%),
-    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
-  mask-composite: intersect;
-}
-
 .map-grid {
   background-image:
     linear-gradient(rgba(217, 165, 32, 0.12) 1px, transparent 1px),
@@ -164,6 +165,6 @@ footer {
 
 @media (max-width: 767px) {
   .section-shell {
-    @apply py-14;
+    @apply py-16;
   }
 }

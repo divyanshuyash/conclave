@@ -1,5 +1,6 @@
 import { AwardsSection } from "@/components/AwardsSection";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { CommunitySection } from "@/components/CommunitySection";
 import { EventInfoStrip } from "@/components/EventInfoStrip";
 import { EventJourney } from "@/components/EventJourney";
 import { ExperienceCards } from "@/components/ExperienceCards";
@@ -27,6 +28,7 @@ export default function Home() {
         <EventJourney />
         <WhoShouldAttend />
         <ExperienceCards />
+        <CommunitySection />
         <Testimonials />
         <VenueSection />
         <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-24 pt-4 md:grid-cols-[0.95fr_1.05fr] lg:px-8">
