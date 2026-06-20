@@ -50,7 +50,7 @@ export function FinalCTA() {
             return (
               <div key={item.label} className="flex min-h-20 flex-col items-center justify-center gap-2 bg-black/72 px-2 py-3 backdrop-blur">
                 <Icon aria-hidden="true" size={17} className="text-conclave-gold" />
-                <span className="text-[8px] font-black uppercase leading-3 tracking-[0.07em] text-conclave-offwhite/72">{item.label}</span>
+                <span className="text-[9px] font-black uppercase leading-4 tracking-[0.06em] text-conclave-offwhite/72">{item.label}</span>
               </div>
             );
           })}

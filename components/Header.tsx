@@ -38,8 +38,8 @@ export function Header() {
           : "border-conclave-gold/15 bg-[#070706]/72 backdrop-blur-md"
       }`}
     >
-      <nav className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="#" className="relative h-11 w-40 overflow-hidden sm:w-52" aria-label="Shobhit Singhal home">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-[4.75rem] sm:px-5 lg:px-8">
+        <Link href="#" className="relative h-9 w-36 overflow-hidden sm:h-11 sm:w-52" aria-label="Shobhit Singhal home">
           <Image
             src={campaignImages.shobhitLogo}
             alt="Shobhit Singhal - The Transformer"

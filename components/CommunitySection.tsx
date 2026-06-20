@@ -17,33 +17,23 @@ export function CommunitySection() {
     <section className="section-shell pt-8">
       <div className="relative overflow-hidden border border-conclave-gold/30 bg-[#090908] shadow-gold">
         <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
-          <motion.div
+          <motion.figure
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.65 }}
-            className="relative min-h-[380px] overflow-hidden border-b border-conclave-gold/20 lg:min-h-[620px] lg:border-b-0 lg:border-r"
+            className="overflow-hidden border-b border-conclave-gold/20 bg-black lg:border-b-0 lg:border-r"
           >
             <Image
-              src={campaignImages.recognitionExperience}
-              alt="Visual preview of a premium Chanakya Conclave recognition ceremony"
-              fill
-              className="object-cover object-[72%_center]"
+              src={campaignImages.transformersHub}
+              alt="Shobhit Singhal with a fellow Transformers Hub member"
+              width={1122}
+              height={1402}
+              quality={100}
+              className="block h-auto w-full"
               sizes="(min-width: 1024px) 54vw, 100vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(0,0,0,.12)_52%,#080807_100%)]" />
-            <div className="absolute inset-x-5 bottom-5 border border-conclave-gold/35 bg-black/75 p-4 backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-5">
-              <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 shrink-0 place-items-center border border-conclave-gold/40 bg-conclave-gold/10 text-conclave-gold">
-                  <Trophy aria-hidden="true" size={20} />
-                </span>
-                <div>
-                  <p className="text-[9px] font-black uppercase tracking-[0.18em] text-conclave-gold">Recognition Experience</p>
-                  <p className="mt-1 text-xs font-semibold text-conclave-offwhite/65">A visual preview of the room being created for 2nd September.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          </motion.figure>
 
           <motion.div
             initial={{ opacity: 0, x: 24 }}
@@ -77,7 +67,7 @@ export function CommunitySection() {
                 return (
                   <div key={item.label} className="relative border border-conclave-gold/25 bg-black/45 px-2 py-4 text-center">
                     <Icon aria-hidden="true" size={20} className="mx-auto text-conclave-gold" strokeWidth={1.45} />
-                    <p className="mt-2 text-[8px] font-black uppercase tracking-[0.09em] text-conclave-offwhite/72">{item.label}</p>
+                    <p className="mt-2 text-[9px] font-black uppercase tracking-[0.08em] text-conclave-offwhite/72 sm:text-[10px]">{item.label}</p>
                     {index < system.length - 1 && (
                       <ArrowRight aria-hidden="true" size={13} className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 text-conclave-gold sm:block lg:hidden xl:block" />
                     )}

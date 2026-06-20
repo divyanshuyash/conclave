@@ -67,7 +67,7 @@ export function ExperienceCards() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 sm:grid-cols-2 lg:grid-cols-4">
         {experiences.map((item, index) => {
           const Icon = item.icon;
           return (
@@ -79,7 +79,7 @@ export function ExperienceCards() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.045 }}
               tabIndex={0}
-              className="group relative min-h-44 overflow-hidden bg-[#0a0a09] p-5 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:min-h-56 sm:p-7 lg:min-h-60 lg:p-7"
+              className="group relative min-h-0 overflow-hidden bg-[#0a0a09] p-5 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:min-h-56 sm:p-7 lg:min-h-60 lg:p-7"
             >
               <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-conclave-gold/10" />
               <Icon
@@ -92,10 +92,10 @@ export function ExperienceCards() {
                 <Icon aria-hidden="true" className="text-conclave-gold" size={26} strokeWidth={1.35} />
                 <span className="font-display text-3xl text-conclave-gold/20 sm:text-4xl">0{index + 1}</span>
               </div>
-              <div className="mt-10 sm:mt-14">
+              <div className="mt-7 sm:mt-14">
                 <h3 className="text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</h3>
                 <div className="mt-4 h-px w-12 bg-conclave-gold/70" />
-                <p className="mt-3 max-h-0 translate-y-2 overflow-hidden text-[10px] font-semibold leading-4 text-conclave-offwhite/58 opacity-0 transition duration-300 group-hover:max-h-20 group-hover:translate-y-0 group-hover:opacity-100 group-focus:max-h-20 group-focus:translate-y-0 group-focus:opacity-100 sm:mt-4 sm:text-sm sm:leading-6">
+                <p className="mt-3 max-h-20 translate-y-0 overflow-hidden text-xs font-semibold leading-5 text-conclave-offwhite/58 opacity-100 transition duration-300 sm:mt-4 sm:text-sm sm:leading-6 lg:max-h-0 lg:translate-y-2 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus:max-h-20 lg:group-focus:translate-y-0 lg:group-focus:opacity-100">
                   {item.description}
                 </p>
               </div>

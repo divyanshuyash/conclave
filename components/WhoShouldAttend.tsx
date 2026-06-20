@@ -59,7 +59,7 @@ export function WhoShouldAttend() {
               <span className="grid h-12 w-12 place-items-center border border-conclave-gold/40 bg-conclave-gold/[0.07] text-conclave-gold">
                 <Icon aria-hidden="true" size={21} strokeWidth={1.45} />
               </span>
-              <p className="relative mt-4 max-w-[11rem] text-[8px] font-black uppercase leading-4 tracking-[0.06em] text-conclave-offwhite/76 sm:text-[9px] sm:tracking-[0.08em]">
+              <p className="relative mt-4 max-w-[11rem] text-[10px] font-black uppercase leading-4 tracking-[0.05em] text-conclave-offwhite/76 sm:tracking-[0.08em]">
                 {attendee.label}
               </p>
             </motion.article>

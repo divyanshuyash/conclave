@@ -92,16 +92,16 @@ export function MindMapSection() {
                 </span>
                 <span className="relative min-w-0">
                   <span className="block font-display text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</span>
-                  <span className="mt-2 block text-[8px] font-black uppercase leading-4 tracking-[0.09em] text-conclave-gold/65 sm:text-[9px]">{item.caption}</span>
+                  <span className="mt-2 block text-[9px] font-black uppercase leading-4 tracking-[0.07em] text-conclave-gold/65 sm:tracking-[0.09em]">{item.caption}</span>
                 </span>
               </motion.article>
             );
           })}
         </div>
 
-        <div className="mx-auto mt-4 grid max-w-3xl grid-cols-4 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20">
+        <div className="mx-auto mt-4 grid max-w-3xl grid-cols-2 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 sm:grid-cols-4">
           {["Courage", "Consistency", "Action", "Achievement"].map((value) => (
-            <span key={value} className="bg-black/75 px-1 py-3 text-center text-[7px] font-black uppercase tracking-[0.06em] text-conclave-gold sm:text-[9px] sm:tracking-[0.12em]">
+            <span key={value} className="bg-black/75 px-2 py-3 text-center text-[9px] font-black uppercase tracking-[0.1em] text-conclave-gold sm:tracking-[0.12em]">
               {value}
             </span>
           ))}

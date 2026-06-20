@@ -78,7 +78,7 @@ export function AwardsSection() {
 
               <div className="mt-5 grid grid-cols-2 gap-2 border-y border-conclave-gold/15 py-4">
                 {award.includes.map((item, itemIndex) => (
-                  <div key={item} className="flex items-center gap-2 text-[8px] font-black uppercase leading-3 tracking-[0.05em] text-conclave-offwhite/72">
+                  <div key={item} className="flex items-center gap-2 text-[9px] font-black uppercase leading-4 tracking-[0.04em] text-conclave-offwhite/72">
                     {itemIndex === 0 ? (
                       <Trophy aria-hidden="true" size={13} className="shrink-0 text-conclave-gold" />
                     ) : itemIndex === 1 ? (
