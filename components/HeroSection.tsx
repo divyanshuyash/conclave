@@ -33,14 +33,41 @@ function HeroTitle({ compact = false }: { compact?: boolean }) {
 export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden border-b border-conclave-gold/20 bg-black pt-16 sm:pt-[4.75rem] lg:min-h-[920px]">
-      <Image
-        src={campaignImages.hero}
-        alt="Chanakya and Shobhit Singhal in a black and gold ceremonial setting"
-        fill
-        priority
-        quality={100}
-        className="hidden object-cover object-center lg:block"
-        sizes="100vw"
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,165,32,0.1),transparent_34%),linear-gradient(135deg,rgba(217,165,32,0.08),transparent_30%,transparent_70%,rgba(217,165,32,0.06))]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 hidden h-[91%] w-[40%] [mask-image:linear-gradient(to_right,black_0%,black_70%,transparent_100%)] lg:block"
+      >
+        <Image
+          src={campaignImages.heroChanakya}
+          alt=""
+          fill
+          priority
+          quality={100}
+          className="object-cover object-[48%_top]"
+          sizes="40vw"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 hidden h-[91%] w-[40%] [mask-image:linear-gradient(to_left,black_0%,black_70%,transparent_100%)] lg:block"
+      >
+        <Image
+          src={campaignImages.heroShobhit}
+          alt=""
+          fill
+          priority
+          quality={100}
+          className="object-cover object-[52%_top]"
+          sizes="40vw"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-black via-black/65 to-transparent lg:block"
       />
 
       <div className="relative mx-auto flex max-w-7xl items-center justify-center px-5 py-5 sm:px-6 sm:py-7 lg:min-h-[844px] lg:px-8 lg:py-12">
@@ -53,23 +80,35 @@ export function HeroSection() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="relative -mx-5 mb-5 aspect-[16/9] w-[calc(100%+2.5rem)] overflow-hidden border-y border-conclave-gold/20 sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden"
+            className="relative -mx-5 mb-5 aspect-[16/10] w-[calc(100%+2.5rem)] overflow-hidden border-y border-conclave-gold/20 bg-black sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden"
           >
-            <Image
-              src={campaignImages.hero}
-              alt="Chanakya and Shobhit Singhal"
-              fill
-              priority
-              quality={100}
-              className="object-contain object-center"
-              sizes="(max-width: 1023px) 100vw, 0px"
-            />
-            <div className="absolute inset-y-0 left-[25%] right-[28%] flex items-center justify-center">
-              <div>
-                <p className="mb-2 text-[6px] font-black uppercase tracking-[0.24em] text-conclave-offwhite/80 sm:text-[8px]">Presents</p>
-                <HeroTitle compact />
-              </div>
+            <div className="absolute inset-y-0 left-0 w-[54%] [mask-image:linear-gradient(to_right,black_0%,black_72%,transparent_100%)]">
+              <Image
+                src={campaignImages.heroChanakya}
+                alt="Chanakya"
+                fill
+                priority
+                quality={100}
+                className="object-cover object-[50%_18%]"
+                sizes="54vw"
+              />
             </div>
+            <div className="absolute inset-y-0 right-0 w-[54%] [mask-image:linear-gradient(to_left,black_0%,black_72%,transparent_100%)]">
+              <Image
+                src={campaignImages.heroShobhit}
+                alt="Shobhit Singhal"
+                fill
+                priority
+                quality={100}
+                className="object-cover object-[50%_18%]"
+                sizes="54vw"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} transition={{ duration: 0.65, ease: "easeOut" }} className="lg:hidden">
+            <p className="mb-2 text-[8px] font-black uppercase tracking-[0.24em] text-conclave-offwhite/80">Presents</p>
+            <HeroTitle compact />
           </motion.div>
 
           <motion.div
