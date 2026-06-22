@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Award, Eye, Handshake, Lightbulb, Network, PartyPopper, Rocket, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
+import { campaignImages } from "@/lib/images";
 
 const experiences: Array<{ title: string; description: string; icon: LucideIcon }> = [
   {
@@ -49,59 +51,84 @@ const experiences: Array<{ title: string; description: string; icon: LucideIcon 
 
 export function ExperienceCards() {
   return (
-    <section className="section-shell pt-8">
+    <section className="relative isolate overflow-hidden border-y border-conclave-gold/15 bg-[#070706]">
       <motion.div
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.45 }}
-        transition={{ duration: 0.55 }}
-        className="section-heading mb-10"
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: 1.04 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
+        className="absolute inset-x-0 top-0 -z-20 h-[34rem] sm:inset-0 sm:h-auto"
       >
-        <p className="section-kicker">The Experience</p>
-        <h2 className="section-title">
-          Not Just An Event
-          <span className="gold-text block">A Room Full Of Builders</span>
-        </h2>
-        <p className="section-copy">
-          One considered experience. Eight lasting outcomes.
-        </p>
+        <Image
+          src={campaignImages.recognitionExperience}
+          alt=""
+          fill
+          quality={100}
+          className="object-cover object-[72%_center] sm:object-[66%_center] lg:object-center"
+          sizes="100vw"
+        />
       </motion.div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,5,4,.5)_0%,rgba(5,5,4,.62)_35%,#070706_72%),linear-gradient(90deg,rgba(4,4,3,.94)_0%,rgba(4,4,3,.6)_52%,rgba(4,4,3,.2)_100%)] sm:bg-[linear-gradient(180deg,rgba(5,5,4,.48)_0%,rgba(5,5,4,.7)_48%,rgba(5,5,4,.94)_100%),linear-gradient(90deg,rgba(4,4,3,.94)_0%,rgba(4,4,3,.58)_50%,rgba(4,4,3,.28)_100%)]"
+      />
 
-      <div className="grid grid-cols-1 gap-px overflow-hidden border border-conclave-gold/25 bg-conclave-gold/20 sm:grid-cols-2 lg:grid-cols-4">
-        {experiences.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <motion.article
-              key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ backgroundColor: "#151109" }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: index * 0.045 }}
-              tabIndex={0}
-              className="group relative min-h-0 overflow-hidden bg-[#0a0a09] p-5 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:min-h-56 sm:p-7 lg:min-h-60 lg:p-7"
-            >
-              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-conclave-gold/10" />
-              <Icon
-                aria-hidden="true"
-                size={150}
-                strokeWidth={0.65}
-                className="absolute -bottom-10 -right-8 text-conclave-gold/[0.055] transition duration-500 group-hover:scale-110 group-hover:text-conclave-gold/[0.09]"
-              />
-              <div className="flex items-start justify-between">
-                <Icon aria-hidden="true" className="text-conclave-gold" size={26} strokeWidth={1.35} />
-                <span className="font-display text-3xl text-conclave-gold/20 sm:text-4xl">0{index + 1}</span>
-              </div>
-              <div className="mt-7 sm:mt-14">
-                <h3 className="text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</h3>
-                <div className="mt-4 h-px w-12 bg-conclave-gold/70" />
-                <p className="mt-3 max-h-20 translate-y-0 overflow-hidden text-xs font-semibold leading-5 text-conclave-offwhite/58 opacity-100 transition duration-300 sm:mt-4 sm:text-sm sm:leading-6 lg:max-h-0 lg:translate-y-2 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus:max-h-20 lg:group-focus:translate-y-0 lg:group-focus:opacity-100">
-                  {item.description}
-                </p>
-              </div>
-            </motion.article>
-          );
-        })}
+      <div className="section-shell relative pt-12 sm:pt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.45 }}
+          transition={{ duration: 0.55 }}
+          className="mb-12 max-w-2xl text-left sm:mb-14 lg:py-6"
+        >
+          <p className="section-kicker">The Experience</p>
+          <h2 className="section-title">
+            Not Just An Event
+            <span className="gold-text block">A Room Full Of Builders</span>
+          </h2>
+          <p className="section-copy mx-0">
+            One considered experience. Eight lasting outcomes.
+          </p>
+          <div className="mt-7 h-px w-28 bg-gradient-to-r from-conclave-gold to-transparent" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-px overflow-hidden border border-conclave-gold/30 bg-conclave-gold/20 shadow-[0_28px_90px_rgba(0,0,0,.55)] backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-4">
+          {experiences.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ backgroundColor: "rgba(21, 17, 9, 0.97)" }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, delay: index * 0.045 }}
+                tabIndex={0}
+                className="group relative min-h-0 overflow-hidden bg-[#0a0a09]/90 p-5 backdrop-blur-[2px] focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-conclave-gold/70 sm:min-h-56 sm:p-7 lg:min-h-60 lg:p-7"
+              >
+                <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-conclave-gold/10" />
+                <Icon
+                  aria-hidden="true"
+                  size={150}
+                  strokeWidth={0.65}
+                  className="absolute -bottom-10 -right-8 text-conclave-gold/[0.055] transition duration-500 group-hover:scale-110 group-hover:text-conclave-gold/[0.09]"
+                />
+                <div className="flex items-start justify-between">
+                  <Icon aria-hidden="true" className="text-conclave-gold" size={26} strokeWidth={1.35} />
+                  <span className="font-display text-3xl text-conclave-gold/20 sm:text-4xl">0{index + 1}</span>
+                </div>
+                <div className="mt-7 sm:mt-14">
+                  <h3 className="text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</h3>
+                  <div className="mt-4 h-px w-12 bg-conclave-gold/70" />
+                  <p className="mt-3 max-h-20 translate-y-0 overflow-hidden text-xs font-semibold leading-5 text-conclave-offwhite/58 opacity-100 transition duration-300 sm:mt-4 sm:text-sm sm:leading-6 lg:max-h-0 lg:translate-y-2 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus:max-h-20 lg:group-focus:translate-y-0 lg:group-focus:opacity-100">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

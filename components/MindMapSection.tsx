@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import {
   ChartNoAxesCombined,
   ChevronRight,
@@ -28,6 +29,42 @@ const outcomes: Array<{ title: string; caption: string; icon: LucideIcon }> = [
   { title: "Community", caption: "Builders moving together", icon: UsersRound },
   { title: "Inspiration", caption: "Real stories and real proof", icon: Lightbulb }
 ];
+
+function MobileOverflowText({ children }: { children: string }) {
+  const containerRef = useRef<HTMLSpanElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+  const [overflow, setOverflow] = useState(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const text = textRef.current;
+    if (!container || !text) return;
+
+    const measure = () => {
+      const isPhone = window.matchMedia("(max-width: 639px)").matches;
+      setOverflow(isPhone ? Math.max(0, Math.ceil(text.scrollWidth - container.clientWidth)) : 0);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    observer.observe(text);
+    return () => observer.disconnect();
+  }, [children]);
+
+  return (
+    <span ref={containerRef} className="mobile-overflow-title block w-full overflow-hidden sm:overflow-visible">
+      <motion.span
+        ref={textRef}
+        animate={overflow > 0 ? { x: [0, -overflow, -overflow, 0, 0] } : { x: 0 }}
+        transition={overflow > 0 ? { duration: 5, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.7 } : undefined}
+        className="mobile-overflow-title__track block w-max max-w-none font-display text-2xl leading-none text-conclave-offwhite sm:w-auto sm:text-3xl"
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
 
 export function MindMapSection() {
   return (
@@ -84,15 +121,15 @@ export function MindMapSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.4, delay: index * 0.045 }}
-                className="group relative flex min-h-32 items-center gap-3 overflow-hidden border border-conclave-gold/20 bg-[#0a0a09]/90 p-4 transition hover:border-conclave-gold/45 hover:bg-[#151109] sm:p-5"
+                className="group relative flex min-h-36 min-w-0 flex-col items-start gap-3 overflow-hidden border border-conclave-gold/20 bg-[#0a0a09]/90 p-3 transition hover:border-conclave-gold/45 hover:bg-[#151109] sm:min-h-32 sm:flex-row sm:items-center sm:p-5"
               >
                 <Icon aria-hidden="true" size={86} strokeWidth={0.65} className="absolute -bottom-6 -right-4 text-conclave-gold/[0.055]" />
-                <span className="grid h-11 w-11 shrink-0 place-items-center border border-conclave-gold/40 bg-conclave-gold/[0.08] text-conclave-gold">
+                <span className="grid h-9 w-9 shrink-0 place-items-center border border-conclave-gold/40 bg-conclave-gold/[0.08] text-conclave-gold sm:h-11 sm:w-11">
                   <Icon aria-hidden="true" size={19} strokeWidth={1.5} />
                 </span>
-                <span className="relative min-w-0">
-                  <span className="block font-display text-2xl leading-none text-conclave-offwhite sm:text-3xl">{item.title}</span>
-                  <span className="mt-2 block text-[9px] font-black uppercase leading-4 tracking-[0.07em] text-conclave-gold/65 sm:tracking-[0.09em]">{item.caption}</span>
+                <span className="relative min-w-0 max-w-full">
+                  <MobileOverflowText>{item.title}</MobileOverflowText>
+                  <span className="mt-2 block break-words text-[8px] font-black uppercase leading-4 tracking-[0.035em] text-conclave-gold/65 min-[360px]:text-[9px] sm:tracking-[0.09em]">{item.caption}</span>
                 </span>
               </motion.article>
             );
