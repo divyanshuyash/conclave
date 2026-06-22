@@ -318,18 +318,6 @@ footer {
   to { transform: translate3d(-2%, 0, 0) scale(1.02); filter: brightness(1.05); }
 }
 
-.hero-highlights-rail {
-  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
-}
-
-.hero-highlights-track {
-  animation: hero-highlights-scroll 24s linear infinite;
-}
-
-@keyframes hero-highlights-scroll {
-  to { transform: translateX(-50%); }
-}
-
 .luxury-border {
   position: relative;
 }
@@ -394,19 +382,6 @@ footer {
   .hero-mobile-composition::after,
   .hero-mobile-portrait {
     animation: none;
-  }
-
-  .hero-highlights-rail {
-    overflow-x: auto;
-    mask-image: none;
-  }
-
-  .hero-highlights-track {
-    animation: none;
-  }
-
-  .hero-highlights-track > [aria-hidden="true"] {
-    display: none;
   }
 
   .mobile-overflow-title {

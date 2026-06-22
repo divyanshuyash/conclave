@@ -79,7 +79,7 @@ export function HeroSection() {
         className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-black via-black/65 to-transparent lg:block"
       />
 
-      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-5 py-5 sm:px-6 sm:py-7 lg:min-h-[844px] lg:px-8 lg:py-12">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-5 pb-16 pt-5 sm:px-6 sm:py-7 lg:min-h-[844px] lg:px-8 lg:py-12">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -179,20 +179,18 @@ export function HeroSection() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.72, ease: "easeOut" }}
-            className="hero-highlights-rail relative z-20 order-2 -mx-1 mt-3 overflow-hidden border-y border-conclave-gold/30 bg-black/55 py-2 shadow-[0_18px_55px_rgba(0,0,0,.4)] backdrop-blur-sm sm:hidden"
+            className="hero-highlights-rail relative z-20 order-2 mt-3 overflow-hidden border border-conclave-gold/30 bg-black/60 shadow-[0_18px_55px_rgba(0,0,0,.4)] backdrop-blur-sm sm:hidden"
           >
-            <div className="hero-highlights-track flex w-max items-stretch">
-              {[...mobileHighlights, ...mobileHighlights].map((highlight, index) => {
+            <div className="grid grid-cols-3 gap-px bg-conclave-gold/20">
+              {mobileHighlights.map((highlight) => {
                 const Icon = highlight.icon;
-                const isDuplicate = index >= mobileHighlights.length;
                 return (
                   <div
-                    key={`${highlight.label}-${index}`}
-                    aria-hidden={isDuplicate || undefined}
-                    className="flex min-h-12 min-w-[8.5rem] items-center justify-center gap-2 border-r border-conclave-gold/20 px-3"
+                    key={highlight.label}
+                    className="flex min-h-12 min-w-0 items-center justify-center gap-1.5 bg-black/80 px-1.5 py-2"
                   >
                     <Icon aria-hidden="true" size={15} strokeWidth={1.5} className="shrink-0 text-conclave-gold" />
-                    <span className="text-[8px] font-black uppercase leading-3 tracking-[0.04em] text-conclave-offwhite/78">
+                    <span className="min-w-0 text-[7px] font-black uppercase leading-3 tracking-[0.02em] text-conclave-offwhite/78 min-[380px]:text-[8px]">
                       {highlight.mobileLabel}
                     </span>
                   </div>
