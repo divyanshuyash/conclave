@@ -69,7 +69,9 @@ export function FinalCTA() {
             <ArrowRight aria-hidden="true" size={18} />
           </motion.a>
           <motion.a
-            href="#awards"
+            href={registrationUrl}
+            target="_blank"
+            rel="noreferrer"
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
             className="dark-button w-full sm:w-auto sm:min-w-72"

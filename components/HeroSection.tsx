@@ -226,7 +226,7 @@ export function HeroSection() {
               <span className="sm:hidden">Reserve Seat</span>
               <span className="hidden sm:inline">Reserve My Seat</span>
             </motion.a>
-            <motion.a href="#awards" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="dark-button min-h-12 w-full px-2 text-[10px] leading-4 sm:w-auto sm:min-w-64 sm:px-6 sm:text-sm sm:leading-5">
+            <motion.a href={registrationUrl} target="_blank" rel="noreferrer" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="dark-button min-h-12 w-full px-2 text-[10px] leading-4 sm:w-auto sm:min-w-64 sm:px-6 sm:text-sm sm:leading-5">
               <span className="sm:hidden">Nominate Now</span>
               <span className="hidden sm:inline">Nominate Me For An Award</span>
             </motion.a>
