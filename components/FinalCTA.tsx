@@ -68,17 +68,6 @@ export function FinalCTA() {
             Reserve Your Seat Now
             <ArrowRight aria-hidden="true" size={18} />
           </motion.a>
-          <motion.a
-            href={registrationUrl}
-            target="_blank"
-            rel="noreferrer"
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.98 }}
-            className="dark-button w-full sm:w-auto sm:min-w-72"
-            aria-label="Apply for award nomination"
-          >
-            Apply For Award Nomination
-          </motion.a>
         </div>
       </motion.div>
     </section>

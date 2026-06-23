@@ -121,7 +121,17 @@ export function HeroSection() {
               <span className="hero-ambient__particles" />
             </div>
             <span aria-hidden="true" className="hero-mobile-stage__fade absolute inset-x-0 bottom-0 z-[15] h-[42%]" />
-            <div className="hero-mobile-title absolute inset-y-0 left-1/2 z-20 flex w-[46%] -translate-x-1/2 flex-col items-center justify-center px-1">
+            <div className="hero-mobile-title absolute inset-y-0 left-1/2 z-20 flex w-[52%] -translate-x-1/2 flex-col items-center justify-center px-1">
+              <div className="relative mb-2 h-7 w-[min(42vw,10rem)] overflow-hidden min-[380px]:h-8 min-[380px]:w-[min(44vw,11rem)]">
+                <Image
+                  src={campaignImages.shobhitLogo}
+                  alt="Shobhit Singhal - The Transformer"
+                  fill
+                  priority
+                  className="object-contain object-center"
+                  sizes="176px"
+                />
+              </div>
               <p className="mb-2 text-[7px] font-black uppercase tracking-[0.2em] text-conclave-offwhite/80 min-[380px]:text-[8px]">Presents</p>
               <HeroTitle compact />
             </div>
@@ -137,7 +147,7 @@ export function HeroSection() {
               alt="Shobhit Singhal - The Transformer"
               fill
               priority
-              className="object-cover object-center"
+              className="object-contain object-center"
               sizes="224px"
             />
           </motion.div>
@@ -220,15 +230,11 @@ export function HeroSection() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.72, ease: "easeOut" }}
-            className="relative z-20 order-1 mt-4 grid grid-cols-2 gap-2 sm:order-none sm:mt-6 sm:flex sm:justify-center sm:gap-3"
+            className="relative z-20 order-1 mt-4 flex justify-center sm:order-none sm:mt-6"
           >
-            <motion.a href={registrationUrl} target="_blank" rel="noreferrer" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="gold-button min-h-12 w-full px-2 text-[10px] leading-4 sm:w-auto sm:min-w-64 sm:px-6 sm:text-sm sm:leading-5">
+            <motion.a href={registrationUrl} target="_blank" rel="noreferrer" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="gold-button min-h-12 w-full max-w-xs px-2 text-[10px] leading-4 sm:w-auto sm:min-w-64 sm:px-6 sm:text-sm sm:leading-5">
               <span className="sm:hidden">Reserve Seat</span>
               <span className="hidden sm:inline">Reserve My Seat</span>
-            </motion.a>
-            <motion.a href={registrationUrl} target="_blank" rel="noreferrer" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="dark-button min-h-12 w-full px-2 text-[10px] leading-4 sm:w-auto sm:min-w-64 sm:px-6 sm:text-sm sm:leading-5">
-              <span className="sm:hidden">Nominate Now</span>
-              <span className="hidden sm:inline">Nominate Me For An Award</span>
             </motion.a>
           </motion.div>
         </motion.div>

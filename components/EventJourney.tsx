@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import {
   Coffee,
+  DoorOpen,
   Handshake,
   Megaphone,
   Presentation,
@@ -27,9 +28,9 @@ const agenda: Array<{ time: string; title: string; details: string; icon: Lucide
   },
   {
     time: "11:00 AM – 11:15 AM",
-    title: "Break",
-    details: "Networking and refreshments.",
-    icon: Coffee
+    title: "Restroom Break",
+    details: "A short restroom break before the next session.",
+    icon: DoorOpen
   },
   {
     time: "11:15 AM – 01:00 PM",
@@ -40,7 +41,7 @@ const agenda: Array<{ time: string; title: string; details: string; icon: Lucide
   {
     time: "01:00 PM – 02:00 PM",
     title: "Networking Lunch",
-    details: "A premium buffet lunch with members, nominees and business builders.",
+    details: "A premium buffet lunch with members, award winners and business builders.",
     icon: Utensils
   },
   {

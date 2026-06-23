@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Who can attend this event?",
     answer:
-      "Transformers Hub Members, Avengers Members, award nominees, award winners, business builders, consultants, coaches, trainers, experts and digital entrepreneurs."
+      "Transformers Hub Members, Avengers Members, award winners, business builders, consultants, coaches, trainers, experts and digital entrepreneurs."
   },
   {
     question: "Is this only for members?",
@@ -18,10 +18,6 @@ const faqs = [
     question: "What is included in the ticket?",
     answer:
       "The ticket includes the full-day recognition experience, networking lunch, high tea, awards ceremony access and the premium business community environment."
-  },
-  {
-    question: "Can I nominate myself for an award?",
-    answer: "Yes. Members can nominate themselves for relevant award categories and recognition opportunities."
   },
   {
     question: "Are meals included?",

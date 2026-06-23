@@ -45,7 +45,7 @@ export function Header() {
             alt="Shobhit Singhal - The Transformer"
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain object-center"
             sizes="(max-width: 640px) 160px, 208px"
           />
         </Link>
